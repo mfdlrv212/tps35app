@@ -11,14 +11,17 @@ if(!empty($_POST['documento']) && !empty($_POST['tipoDocumento']) && !empty($_PO
     $apellidos= $_POST['apellidos'];
     $correo= $_POST['correo'];
     $telefono= $_POST['teléfono'];
-    $password= $_POST['pass']; $pass= password_hash($password, PASSWORD_DEFAULT);
+    $password= $_POST['pass']; 
+    $pass= password_hash($password, PASSWORD_DEFAULT);
     $rol= $_POST['rol'];
 
-    $agregarUsuarios="INSERT INTO form(documento, tipoDocumento, nombres, apellidos, correo, teléfono, pass, rol)
-    VALUES (".$documento.", ".$tipoDocumento.", '".$nombres."', '".$apellidos."', '".$correo."', ".$telefono.", '".$password."', ".$rol.")";
+     $agregarUsuarios="INSERT INTO form(id, documento, tipoDocumento, nombres, apellidos, correo, teléfono, pass, rol)
+    VALUES (NULL,$documento, $tipoDocumento, '".$nombres."', '".$apellidos."', '".$correo."', $telefono, '".$password."', $rol)";
     $queryAgregar= mysqli_query($conexion, $agregarUsuarios);
 
-    if($queryAgregar){echo "Usuario registrado exitosamente";
+
+    if($queryAgregar){
+        echo "Usuario registrado exitosamente";
         echo "<br><br>";
         echo "<a href='agregarUsuarios.php'>Volver</a>";
     } else{
@@ -26,7 +29,8 @@ if(!empty($_POST['documento']) && !empty($_POST['tipoDocumento']) && !empty($_PO
     }
 
 } else{ 
-    echo "El usuario ya existe en el sistema";}
+    echo "LLENA LOS MALDITOS CAMPOS";
+}
 
 ?>
 
