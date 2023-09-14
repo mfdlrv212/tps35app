@@ -29,7 +29,7 @@
                         Agregar Usuarios
                     </div>
                     <div class="card-body">
-                        <form action="agregarUsuarios.php" method="post">
+                        <form action="agregarUsuariosCon.php" method="post">
                             <div class="row">
                                 <div class="col-lg mb-3">
                                     <div class="form-group">
@@ -80,7 +80,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         <label>Contraseña:</label>
-                                        <input type="password" class="form-control" name="pass" id="pass" required>
+                                        <input type="password" class="form-control" name="contraseña" id="contraseña" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">

@@ -2,7 +2,7 @@
 include('conexiones/conn.php');
 
 if(!empty($_POST['documento']) && !empty($_POST['tipoDocumento']) && !empty($_POST['nombres']) && !empty($_POST['apellidos']) &&
-!empty($_POST['correo']) && !empty($_POST['teléfono']) && !empty($_POST['pass']) && !empty($_POST['rol'])){
+!empty($_POST['correo']) && !empty($_POST['teléfono']) && !empty($_POST['contraseña']) && !empty($_POST['rol'])){
 
 
     $documento= $_POST['documento']; 
@@ -11,14 +11,13 @@ if(!empty($_POST['documento']) && !empty($_POST['tipoDocumento']) && !empty($_PO
     $apellidos= $_POST['apellidos'];
     $correo= $_POST['correo'];
     $telefono= $_POST['teléfono'];
-    $password= $_POST['pass']; 
+    $password= $_POST['contraseña']; 
     $pass= password_hash($password, PASSWORD_DEFAULT);
     $rol= $_POST['rol'];
 
-     $agregarUsuarios="INSERT INTO form(id, documento, tipoDocumento, nombres, apellidos, correo, teléfono, pass, rol)
+    $agregarUsuarios="INSERT INTO form (id, documento, tipoDocumento, nombres, apellidos, correo, teléfono, contraseña, rol)
     VALUES (NULL,$documento, $tipoDocumento, '".$nombres."', '".$apellidos."', '".$correo."', $telefono, '".$password."', $rol)";
     $queryAgregar= mysqli_query($conexion, $agregarUsuarios);
-
 
     if($queryAgregar){
         echo "Usuario registrado exitosamente";
